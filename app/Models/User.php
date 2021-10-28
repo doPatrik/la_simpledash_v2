@@ -19,6 +19,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string last_name
  * @property boolean is_active
  * @property Collection|UserAddress[] addresses
+ * @property Collection|Provider[] providers
  */
 class User extends Authenticatable
 {
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function addresses()
     {
         return $this->hasMany(UserAddress::class, 'id_user', 'id');
+    }
+
+    public function providers()
+    {
+        return $this->hasMany(Provider::class, 'id_user', 'id');
     }
 }

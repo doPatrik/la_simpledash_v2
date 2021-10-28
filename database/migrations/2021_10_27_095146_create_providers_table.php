@@ -21,10 +21,14 @@ class CreateProvidersTable extends Migration
             $table->string('label', 60);
             $table->string('color_code', 10);
             $table->unsignedBigInteger('id_address');
+            $table->unsignedBigInteger('id_user');
             $table->timestamps();
 
             $table->foreign('id_address', 'fk_provider_address')
                 ->references('id_address')->on('provider_addresses')
+                ->onDelete('restrict')->onUpdate('cascade');
+
+            $table->foreign('id_user', 'fk_provider_user')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
