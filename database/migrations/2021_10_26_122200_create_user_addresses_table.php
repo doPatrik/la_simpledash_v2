@@ -18,6 +18,8 @@ class CreateUserAddressesTable extends Migration
             $table->string('zip_code', 20);
             $table->string('city', 60);
             $table->string('address', 300);
+            $table->string('street_number', 10);
+            $table->boolean('is_default')->default(false);
             $table->unsignedBigInteger('id_user');
             $table->timestamps();
 

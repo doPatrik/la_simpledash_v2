@@ -22,7 +22,7 @@ class UserAddress extends Model
     protected $primaryKey = 'id_address';
 
     protected $fillable = [
-        'zip_code', 'city', 'address', 'id_user',
+        'zip_code', 'city', 'address', 'id_user', 'street_number',
     ];
 
     public function user()

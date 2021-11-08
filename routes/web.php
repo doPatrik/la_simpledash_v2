@@ -17,8 +17,14 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
+
+    //Dashboard routes
+    Route::get('/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index'])->name('dashboard');
+
+    //Address redirect setting
+    Route::get('/set-address', [\App\Http\Controllers\Setting\SetAddressController::class, 'create'])->name('address_set.create');
+    Route::post('/set-address', [\App\Http\Controllers\Setting\SetAddressController::class, 'store'])->name('address_set.store');
+});
 
 require __DIR__.'/auth.php';

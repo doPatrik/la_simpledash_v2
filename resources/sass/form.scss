@@ -1,0 +1,9 @@
+.form-header::after {
+    content: '';
+    width: 250px;
+    height: 7px;
+    background: #1E40AF;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
