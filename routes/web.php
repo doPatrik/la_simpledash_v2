@@ -25,6 +25,12 @@ Route::group(['middleware' => 'auth'], function () {
     //Address redirect setting
     Route::get('/set-address', [\App\Http\Controllers\Setting\SetAddressController::class, 'create'])->name('address_set.create');
     Route::post('/set-address', [\App\Http\Controllers\Setting\SetAddressController::class, 'store'])->name('address_set.store');
+
+    //Test controller
+    Route::get('/test', [\App\Http\Controllers\Test\TestController::class, 'index'])->name('test.index');
+    Route::get('/test-table', [\App\Http\Controllers\Test\TestController::class, 'test'])->name('test.table');
+    Route::post('/test-data', [\App\Http\Controllers\Test\TestController::class, 'create'])->name('test.data');
+    Route::delete('/test-data/delete/{id}', [\App\Http\Controllers\Test\TestController::class, 'delete'])->name('test.delete');
 });
 
 require __DIR__.'/auth.php';

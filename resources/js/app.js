@@ -3,11 +3,16 @@ require('./bootstrap');
 require('alpinejs');
 
 import { createApp } from "vue"
+import FormBuilderComponent from "./components/FormBuilder/FormBuilderComponent";
+import BaseInputComponent from "./components/FormBuilder/Inputs/BaseInputComponent";
+import DataTableComponent from "./components/DataTable/DataTableComponent";
 
-createApp({
-   components: {}
-}).mount('#app');
-
+const app = createApp({});
+app.config.compilerOptions.isCustomElement = tag => tag === 'ion-icon';
+app.component('FormBuilderComponent', FormBuilderComponent);
+app.component('BaseInputComponent', BaseInputComponent);
+app.component('DataTableComponent', DataTableComponent);
+const mountedApp = app.mount('#app');
 
 
 //Menu toggle

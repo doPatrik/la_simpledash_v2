@@ -12,7 +12,13 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            scale: {
+                '-1': '-1'
+            }
         },
+        maxWidth: {
+            'xs': '280px'
+        }
     },
 
     variants: {
